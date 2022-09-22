@@ -11,14 +11,31 @@ const UserSchema = new Schema({
       type: Date,
       default: Date.now
     },
-    thoughts: {
-        type: String
-      },
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Thought'
+      }
+    ],
     friends: {
       type: String,
       default: 'Large'
     }
-  });
+    
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false
+  }
+  );
+
+  // get total count of comments and replies on retrieval
+  //Virtual to get the total amount of friends a user has
+UserSchema.virtual('friendCount').get(function() {
+  return this.friends.length;
+});
 
   // create the Pizza model using the PizzaSchema
 const User = model('User', UserSchema);
