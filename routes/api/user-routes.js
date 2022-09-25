@@ -9,23 +9,19 @@ const {
     deleteFriend
   } = require('../../controllers/user-controller');
 
-// Set up GET all and POST at /api/pizzas
+// Set up GET all and POST at /api/users
 router
   .route('/')
   .get(getAllUsers)
   .post(createUser);
 
-// Set up GET one, PUT, and DELETE at /api/pizzas/:id
+// Set up GET one, PUT, and DELETE at /api/users/:id
 router
   .route('/:id')
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
-
-// router
-//   .route('/:id/thoughtid')
   
-
 // Set up POST and Delete route for friends at /api/users/:userId/friends/:friendId
  router.route('/:userId/friends/:friendId')
  .delete(deleteFriend)

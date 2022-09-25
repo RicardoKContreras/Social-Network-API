@@ -13,10 +13,6 @@ const UserSchema = new Schema({
       required: true,
       match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Please fill a valid email address']
     },
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
@@ -45,8 +41,8 @@ UserSchema.virtual('friendCount').get(function() {
       return this.friends.length;
 });
 
-  // create the Pizza model using the PizzaSchema
+  // create the User model using the UserSchema
 const User = model('User', UserSchema);
 
-// export the Pizza model
+// export the User model
 module.exports = User;

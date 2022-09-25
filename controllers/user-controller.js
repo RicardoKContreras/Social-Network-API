@@ -1,8 +1,7 @@
-const { User, Thought} = require('../models');
+const { User} = require('../models');
 
 const userController = {
   // the functions will go in here as methods
-// get all pizzas
 getAllUsers(req, res) {
     User.find({})
     .populate({
@@ -22,7 +21,6 @@ getAllUsers(req, res) {
       
   },
 
-  // get one pizza by id
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
     .populate({
@@ -31,7 +29,6 @@ getAllUsers(req, res) {
     })
       .select('-__v')
       .then(dbUserData => {
-        // If no pizza is found, send 404
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id!' });
           return;
@@ -44,14 +41,12 @@ getAllUsers(req, res) {
       });
   },
 
-  // createPizza
 createUser({ body }, res) {
     User.create(body)
       .then(dbUserData => res.json(dbUserData))
       .catch(err => res.status(400).json(err));
   },
 
-  // update pizza by id
 updateUser({ params, body }, res) {
     User.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
       .then(dbUserData => {

@@ -2,7 +2,7 @@ const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 const ReactionSchema = new Schema(
   {
-     // set custom id to avoid confusion with parent comment _id
+     // set custom id to avoid confusion with parent thought _id
      reactionId: {
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId()
@@ -10,6 +10,7 @@ const ReactionSchema = new Schema(
     reactionBody: {
       type: String,
       required: true,
+      minLength:280,
       trim: true
     },
     username: {
@@ -35,6 +36,8 @@ const ThoughtSchema = new Schema({
   thoughtText: {
     type: String,
     required: true,
+    minLength:1,
+    maxLength:280,
     trim: true
   },
   createdAt: {
@@ -62,7 +65,6 @@ const ThoughtSchema = new Schema({
 
 ThoughtSchema.virtual('reactionCount').get(function() {
    return this.reactions.length;
-  // console.log(this.friends);
 });
 
 const Thought = model('Thought', ThoughtSchema);
