@@ -42,7 +42,7 @@ const UserSchema = new Schema({
   // get total count of comments and replies on retrieval
   //Virtual to get the total amount of friends a user has
 UserSchema.virtual('friendCount').get(function() {
-  // return this.friends.length;
+      return this.friends.length;
 });
 
   // create the Pizza model using the PizzaSchema
