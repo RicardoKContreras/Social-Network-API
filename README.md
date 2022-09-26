@@ -26,3 +26,4 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 - Using the server.js file to connect to `Mongod` and the `localhost` through `Mongoose` and `express`
 - All `GET`, `POST`, `PUT`, and `DELETE` routes for `users` and `Thoughts`
 - `POST` and `DELETE` for `reactions` and `friends` works as well
+- Walkthrough Video: https://drive.google.com/file/d/1caN-j7VObM518xIpVQaTxgKBeshLRdHz/view
