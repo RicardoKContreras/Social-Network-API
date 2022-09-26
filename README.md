@@ -27,3 +27,5 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 - All `GET`, `POST`, `PUT`, and `DELETE` routes for `users` and `Thoughts`
 - `POST` and `DELETE` for `reactions` and `friends` works as well
 - Walkthrough Video: https://drive.google.com/file/d/1caN-j7VObM518xIpVQaTxgKBeshLRdHz/view
+-DEMO: ![image](https://user-images.githubusercontent.com/104086686/192172157-eaa3a8fc-a410-462a-8384-51bb5783d4d3.png)
+
